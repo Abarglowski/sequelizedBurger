@@ -29,6 +29,7 @@ router.get("/index" , function (req,res){
       console.log(err);
       res.json(err);
     })
+    res.redirect("/index");
   });
   
   router.put("/burgers/:id", function(req, res) {
