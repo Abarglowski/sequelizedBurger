@@ -48,4 +48,18 @@ router.get("/index" , function (req,res){
       })
   });
 
+  router.delete("/burgers/:id", function(req,res) {
+    db.burgers.destroy({
+      where :
+      {
+        id : req.params.id
+      }
+    })
+    .then(dbBurgerData => res.json(dbBurgerData))
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    })
+  });
+
   module.exports = router;
